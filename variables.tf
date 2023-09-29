@@ -1,0 +1,11 @@
+variable    "access_key"        {}
+variable    "secret_key"        {}
+variable    "key_name"          {}
+variable    "vpc_id"            {}
+variable    "region"            {}
+variable    "public_subnet"     {}
+variable    "private_subnet"    {}
+variable    "ami_id"            {}
+variable    "public_cidr_block" {}
+variable    "vpc_cidr_block"    {}
+variable    "vpc_name"          {}
