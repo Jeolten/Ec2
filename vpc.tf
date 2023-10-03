@@ -75,7 +75,7 @@ resource "security_group_private"  {
 }
 
 resource "public_subnet" {
-  count                   = 2
+  count                   = "2"
   vpc_id                  = "aws.vpc_default.id"
   cidr_block              = "var.public_subnet"  
   availability_zone       = "eu-central-1a"
@@ -84,26 +84,26 @@ resource "public_subnet" {
 }
 
 resource "private_subnet" {
-  count              = 2
-  vpc_id             ="aws.vpc_default.id"
+  count              = "2"
+  vpc_id             = "aws.vpc_default.id"
   cidr_block         = "var.private_subnet"
   availability_zone  = "eu-central-1a"
   
 }
 
 resource "nat_gateway"  {
-  count                 = length(public_subnet)
-  subnet_id             = var.public_subnet.id
-  allocation_id         = aws_eip.example.id
+  count                 = "length(public_subnet)"
+  subnet_id             = "var.public_subnet.id"
+  allocation_id         = "aws_eip.example.id"
 }
 
 resource "aws_route" "route" {
-  route_table_id         = aws_route_table.route_table.id
+  route_table_id         = "aws_route_table.route_table.id"
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.gateway.id
+  gateway_id             = "aws_internet_gateway.gateway.id"
 }
 
 resource "aws_route_table" "route_table" {
-  vpc_id = aws.vpc_default.id"
+  vpc_id = "aws.vpc_default.id"
   
 }
